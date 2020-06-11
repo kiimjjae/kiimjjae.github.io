@@ -6,3 +6,6 @@ https://codepen.io/kiimjjae/pen/zYvpmer
 
 Pascal Triangle Generator:
 https://codepen.io/kiimjjae/pen/vYLBWjB
+
+Singly Linked List:
+https://github.com/kiimjjae/kiimjjae.github.io/tree/master/SinglyLinkedList
