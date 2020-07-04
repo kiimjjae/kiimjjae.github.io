@@ -1,3 +1,7 @@
+const slider = document.getElementById("myRange");
+const output = document.getElementById("demo");
+
+
 const mainContainer = document.getElementById("container");
 
 // First two rows:
@@ -17,39 +21,52 @@ mainContainer.appendChild(firstRowElement);
 mainContainer.appendChild(secondRowElement);
 
 // Pascal Triangle
-const rows = 30;
-
-for (let i = 3; i <= rows; i++) {
-  let row = [];
-
-  for (let j = 0; j < prevRow.length - 1; j++) {
-    row.push(prevRow[j] + prevRow[j + 1]);
-  }
-  row.unshift(1);
-  row.push(1);
-
-  prevRow = row;
-
-  let rowContainer = document.createElement("div");
-  rowContainer.setAttribute("class", "rowContainer");
-
-  // take all array elements, and put them in a cell and appendChild to a row div
-  for (let k = 0; k < row.length; k++) {
-    let rowCell = document.createElement("span");
-    rowCell.setAttribute("class", "cell");
-    rowCell.innerHTML = row[k];
-    if (isOdd(row[k])) {
-      rowCell.setAttribute("class", "odd");
-    }
-    rowContainer.appendChild(rowCell); // will it work?
-  }
-
-  mainContainer.appendChild(rowContainer);
-}
 
 function isOdd(num) {
-  if (num % 2 == 0) {
-    return false;
+	if (num % 2 == 0) {
+		return false;
+	}
+	return true;
+}
+
+function generate(){
+  refresh();
+  let rows = slider.value;
+  if (rows < 2){} else {
+    for (let i = 3; i <= rows; i++) {
+    	let row = [];
+
+    	for (let j = 0; j < prevRow.length - 1; j++) {
+    		row.push(prevRow[j] + prevRow[j + 1]);
+    	}
+    	row.unshift(1);
+    	row.push(1);
+
+    	prevRow = row;
+
+    	let rowContainer = document.createElement("div");
+    	rowContainer.setAttribute("class", "rowContainer");
+
+    	// take all array elements, and put them in a cell and appendChild to a row div
+    	for (let k = 0; k < row.length; k++) {
+    		let rowCell = document.createElement("span");
+    		rowCell.setAttribute("class", "cell");
+    		rowCell.innerHTML = row[k];
+    		if (isOdd(row[k])) {
+    			rowCell.setAttribute("class", "odd");
+    		}
+    		rowContainer.appendChild(rowCell);
+    	}
+
+    	mainContainer.appendChild(rowContainer);
+    }
   }
-  return true;
+
+}
+
+function refresh(){
+  mainContainer.innerHTML = '';
+  prevRow = [1, 1];
+  mainContainer.appendChild(firstRowElement);
+  mainContainer.appendChild(secondRowElement);
 }
