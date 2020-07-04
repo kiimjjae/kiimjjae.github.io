@@ -9,3 +9,6 @@ https://codepen.io/kiimjjae/pen/vYLBWjB
 
 Singly Linked List:
 https://github.com/kiimjjae/kiimjjae.github.io/tree/master/SinglyLinkedList
+
+Dynamic Nav Page:
+https://codepen.io/kiimjjae/pen/LYGeKQK
